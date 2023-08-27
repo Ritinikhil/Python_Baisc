@@ -1,0 +1,37 @@
+import tkinter
+import customtkinter
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("blue")
+app=customtkinter.CTk()
+app.geometry("400x500")
+app.title("Yukomz-GUI")
+def button_callback():
+    print("Button click",combobox_1.get())
+def slider_callback(value):
+    progressbar_1.set(value)
+frame_1=customtkinter.CTkFrame(master=app)
+frame_1.pack(pady=20,padx=60,fill="both",expand=True)
+label_1=customtkinter.CTkLabel(master=frame_1,justify=tkinter.LEFT)
+label_1.pack(pady=12,padx=10)
+progressbar_1=customtkinter.CTkProgressBar(master=frame_1)
+progressbar_1.pack(pady=12,padx=10)
+button_1=customtkinter.CTkButton(master=frame_1,command=button_callback)
+button_1.pack(pady=12,padx=10)
+slider_1=customtkinter.CTkSlider(master=frame_1,command=slider_callback)
+slider_1.pack(pady=12,padx=10)
+slider_1.set(0.5)
+entry_1=customtkinter.CTkEntry(master=frame_1,placeholder_text="Entry...")
+entry_1.pack(pady=12,padx=10)
+option_1=customtkinter.CTkOptionMenu(frame_1,values=["Hello","GUYS"])
+option_1.pack(pady=12,padx=10)
+option_1.set("CTkOptionMenu")
+combobox_1=customtkinter.CTkComboBox(frame_1,values=["option1","option2","option3"])
+combobox_1.pack(pady=12,padx=10)
+option_1.set("CTkCombobox")
+radio_var=tkinter.IntVar(value=1)
+radio1=customtkinter.CTkRadioButton(master=frame_1,variable=radio_var,value=1)
+radio1.pack(pady=12,padx=10)
+switch_1=customtkinter.CTkSwitch(master=frame_1).pack(pady=12,padx=10)
+
+app.mainloop()
+
