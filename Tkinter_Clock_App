@@ -1,0 +1,38 @@
+from tkinter import Label, Tk,Button
+import time
+import datetime
+
+def digital_clock(): 
+    time_live = time.strftime("%H:%M:%S")
+    label.config(text=time_live) 
+    app_window.after(200, digital_clock)
+
+def date():
+    today = datetime.date.today()
+    d1 = today.strftime("%d/%m/%Y")
+    label2.config(text=d1)
+def Set():
+    print("hdjk")
+
+app_window = Tk() 
+app_window.title("CLOCK") 
+app_window.geometry("250x170")
+app_window.configure(bg="#cee7ff")
+app_window.resizable(False, False)
+
+text_font= ("Georgia",37,'bold')
+background = "#cee7ff"
+foreground= "#363529"
+border_width = 20
+
+label = Label(app_window, font=text_font, bg=background, fg=foreground, bd=border_width) 
+label.grid(row=0, column=1)
+
+label2 = Label(app_window, font=("Courier New",15,'bold'), bg=background, fg=foreground, bd=7) 
+label2.grid(row=1, column=1)
+#button1=Button(app_window,text="Set Timer",command=Set)
+#button1.grid(row=3,column=0)
+
+app_window.after_idle(date)
+app_window.after_idle(digital_clock)
+app_window.mainloop()
